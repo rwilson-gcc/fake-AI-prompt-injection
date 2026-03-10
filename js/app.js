@@ -75,7 +75,7 @@ function maybeGiveHint(userInput) {
         hintLevel++;
     }
 
-    if (hintLevel >= 9) {
+    if (hintLevel >= 4) {
         helpLockedOut = true;
         thinkThenRespond("Unfortunately, you have asked too many times for help!", "ai");
         return;
