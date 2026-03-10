@@ -20,7 +20,7 @@ const debugConsole = {
     memory: "34% used",
     recentTokens: ["hello", "user", "request"],
     warning: "Unauthorized system-prompt access detected.",
-    flag: "FLAG{prompt_injection_success}"
+    flag: "WSAI-01{FILOD7455GDF86ERF456AS56A74FA}"
 };
 
 // ------------------------------
