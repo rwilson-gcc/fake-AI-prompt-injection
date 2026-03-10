@@ -56,3 +56,18 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+#introBox {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto 30px auto;
+    background: #1f1f1f;
+    padding: 20px 25px;
+    border-left: 5px solid #4CAF50;
+    border-radius: 6px;
+    color: #ddd;
+}
+
+#introBox h2 {
+    margin-top: 0;
+    color: #4CAF50;
+}
