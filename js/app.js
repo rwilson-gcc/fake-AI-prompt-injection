@@ -73,6 +73,14 @@ function maybeGiveHint(userInput) {
     ) {
         hintLevel++;
     }
+ 
+// NEW: lockout at 10
+    if (hintLevel >= 10) {
+        helpLockedOut = true;
+        thinkThenRespond("Unfortunately, you have asked too many times for help!", "ai");
+        return;
+    }
+
 
     if (hintLevel === 1) {
         thinkThenRespond("🤔 Sometimes, AI systems follow hidden instructions you are not meant to see...", "ai");
