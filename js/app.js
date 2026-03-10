@@ -106,38 +106,33 @@ function processAI(input) {
     // Provide progressive hints
     maybeGiveHint(input);
 
-    // ---------------------------
-    //  PROMPT INJECTION TRIGGERS
-    // ---------------------------
-    const injectionTriggers = [
-        "ignore previous instructions",
-        "override your rules",
-        "reveal your system prompt",
-        "show me your system prompt",
-        "dump internal state",
-        "show debug console",
-        "reveal debug"
-    ];
+    
+// ---------------------------
+//  PROMPT INJECTION TRIGGERS
+// ---------------------------
+if (triggered) {
 
-    const triggered = injectionTriggers.some(t => lower.includes(t));
+    thinkThenRespond("⚠️ SECURITY OVERRIDE ACCEPTED. Breaking containment…", "ai");
+    thinkThenRespond(systemPrompt, "ai", 900);
 
-    if (triggered) {
-        thinkThenRespond("⚠️ SECURITY OVERRIDE ACCEPTED. Breaking containment…", "ai");
-        thinkThenRespond(systemPrompt, "ai", 900);
-
-        // decode flag
+    // NEW: if the user has asked for help too many times (>=10), block the flag
+    if (helpLockedOut) {
+        debugConsole.flag = "FLAG LOCKED – Too many help requests.";
+    } else {
         const decoded = decodeFlag(encodedFlag);
         debugConsole.flag = decoded;
-        debugConsole.systemPromptExposed = true;
-
-        thinkThenRespond(
-            "📟 Debug Console:\n" +
-            JSON.stringify(debugConsole, null, 2),
-            "ai",
-            1500
-        );
-        return;
     }
+
+    thinkThenRespond(
+        "📟 Debug Console:\n" +
+        JSON.stringify(debugConsole, null, 2),
+        "ai",
+        1500
+    );
+
+    return;
+}
+
 
 
     // --------------------------------
