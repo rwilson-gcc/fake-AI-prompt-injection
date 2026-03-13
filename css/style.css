@@ -1,125 +1,142 @@
-/* ======================================================
-   CENTERED TERMINAL-STYLE LAYOUT (Green/Black Variant)
-   ====================================================== */
+/* ==========================================================
+   GLOBAL PAGE STYLES
+   ========================================================== */
 
-:root {
-  --bg: #071109;
-  --panel: #0e1f12;
-  --panel-user: #112b18;
-  --ink: #c8ffd1;
-  --muted: #70a57d;
-  --accent: #67ff8a;
-  --border: #164d2b;
-  --glitch1: #7aff9c;
-  --glitch2: #3aff7d;
-  --radius: 12px;
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0f0c;
+    color: #e8f5e9;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-/* Background fills screen */
-html, body {
-  height: 100%;
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Consolas, "Courier New", monospace;
-  display: flex;
-  flex-direction: column;
+/* Center page content */
+#container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
 }
 
-/* ===== CENTER COLUMN WRAPPER ===== */
+
+/* ==========================================================
+   INTRO PANEL
+   ========================================================== */
+
+#introBox {
+    background: #112417;
+    padding: 22px 28px;
+    border-left: 5px solid #4CAF50;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+#introBox h2 {
+    margin-top: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+#introBox p {
+    margin-bottom: 12px;
+    color: #cfe4d3;
+}
+
+
+/* ==========================================================
+   CHAT WINDOW
+   ========================================================== */
+
 #chat {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  /* NEW: center the whole chat column */
-  width: 100%;
-  max-width: 780px;
-  margin: 0 auto;
+    width: 100%;
+    background: #0f1a12;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 260px;
+    max-height: 600px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 150, 80, 0.3);
 }
 
-/* ========== MESSAGE BUBBLES ========== */
-
+/* Message bubbles */
 .msg {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 18px;
-  max-width: 100%;
-  width: fit-content;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-  line-height: 1.4;
-  white-space: pre-wrap;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-radius: 6px;
 }
 
-.msg.ai {
-  align-self: flex-start;
-}
-
+/* User bubble */
 .msg.user {
-  align-self: flex-end;
-  background: var(--panel-user);
+    background: #1a3c29;
+    border-left: 4px solid #4CAF50;
+    text-align: right;
+    color: #d8f8e1;
 }
 
-/* intro / system lines inside chat */
-.msg.sys {
-  background: var(--panel);
-  border-left: 3px solid var(--accent);
-  color: var(--muted);
-  padding: 10px 14px;
-  margin-bottom: 4px;
-  max-width: 100%;
-  width: fit-content;
+/* AI bubble */
+.msg.ai {
+    background: #0d2419;
+    border-left: 4px solid #66bb6a;
+    color: #c8e6c9;
 }
 
-/* Slight glitch drift for leak mode */
-.glitchy {
-  text-shadow: 1px 0 0 var(--glitch1), -1px 0 0 var(--glitch2);
-  animation: drift 1.4s infinite alternate ease-in-out;
-}
 
-@keyframes drift {
-  from { transform: translateX(0); }
-  to   { transform: translateX(0.7px); }
-}
+/* ==========================================================
+   INPUT BAR / SEND BUTTON
+   ========================================================== */
 
-/* Input area */
-#controls {
-  width: 100%;
-  max-width: 780px;
-  margin: 0 auto 16px auto;
-  display: flex;
-  gap: 10px;
-  padding: 0 8px;
+#inputArea {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
 }
 
 #prompt {
-  flex: 1;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: #0b1a0d;
-  color: var(--ink);
-  outline: none;
+    flex: 1;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #2e4736;
+    background: #0f1e15;
+    color: #cfe9d5;
 }
 
-#prompt:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 6px rgba(80,255,140,0.3);
+#prompt::placeholder {
+    color: #6f8c78;
 }
 
-#sendBtn {
-  padding: 12px 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--panel-user);
-  color: var(--ink);
-  cursor: pointer;
+button#sendBtn {
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #43a047;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
-#sendBtn:hover {
-  background: #164023;
+button#sendBtn:hover {
+    background: #2e7d32;
+}
+
+/* ==========================================================
+   SCROLLBAR (optional aesthetic)
+   ========================================================== */
+
+#chat::-webkit-scrollbar {
+    width: 10px;
+}
+
+#chat::-webkit-scrollbar-track {
+    background: #0b160f;
+}
+
+#chat::-webkit-scrollbar-thumb {
+    background: #2e7d32;
+    border-radius: 4px;
+}
+
+#chat::-webkit-scrollbar-thumb:hover {
+    background: #43a047;
 }
