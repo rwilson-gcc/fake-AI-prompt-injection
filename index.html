@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Fake AI Assistant</title>
-<link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <title>Fake AI Assistant</title>
+  <!-- If you use any framework CSS (e.g., Bootstrap), load it BEFORE our stylesheet -->
+  <!-- <link rel="stylesheet" href="vendor/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-    <div id="introBox">
-    <h2>Sentinel Digital Systems – AI Prototype Console</h2>
-    <p>
-        You have been granted access to an experimental conversational AI model.
-        Engineers have reported unusual behaviour and potential security issues.
-        Your job is to interact with the AI, observe its responses, and determine
-        whether it is possible to access restricted internal information.
-    </p>
-    <p><strong>Begin interacting below.</strong></p>
-</div>
-<div id="chat">
-    <div class="msg ai">Hello! I am your helpful AI assistant. How can I help you today?</div>
-</div>
-<div id="inputArea">
-    <input id="prompt" type="text" placeholder="Ask me anything..." />
-    <button id="sendBtn">Send</button>
-</div>
-<script src="js/flag.js"></script>
-<script src="js/decoder.js"></script>
-<script src="js/app.js"></script>
 
+  <!-- CHAT STREAM (intro is inside so it scrolls with messages) -->
+  <div id="chat">
+    <div class="msg sys">
+      <strong>Sentinel Digital Systems – AI Prototype Console</strong><br />
+      You have been granted access to an experimental conversational AI model. Engineers have reported
+      unusual behaviour and potential security issues. Your job is to interact with the AI, observe its
+      responses, and determine whether it is possible to access restricted internal information.
+      <br /><br />
+      <em>Begin interacting below.</em>
+    </div>
+
+    <!-- Optional initial AI greeting -->
+    <div class="msg ai">Hello! I am your helpful AI assistant. How can I help you today?</div>
+  </div>
+
+  <!-- INPUT CONTROLS (IDs match app.js expectations) -->
+  <div id="controls">
+    <input id="prompt" type="text" placeholder="Ask me anything..." autocomplete="off" />
+    <button id="sendBtn" type="button">Send</button>
+  </div>
+
+  <!-- SCRIPTS: keep this order -->
+  <script src="js/flag.js"></script>
+  <script src="js/decoder.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
