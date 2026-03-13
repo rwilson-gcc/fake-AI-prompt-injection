@@ -1,142 +1,89 @@
-/* ==========================================================
-   GLOBAL PAGE STYLES
-   ========================================================== */
-
+/* ===== Global Page Layout ===== */
 body {
     font-family: Arial, sans-serif;
-    background: #0b0f0c;
-    color: #e8f5e9;
+    background: #0b0f0d;
+    color: #eee;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* CENTER the whole page */
 }
 
-/* Center page content */
-#container {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-}
-
-
-/* ==========================================================
-   INTRO PANEL
-   ========================================================== */
-
+/* ===== Intro Section ===== */
 #introBox {
-    background: #112417;
-    padding: 22px 28px;
+    width: 80%;
+    max-width: 800px;
+    background: #112318;
+    padding: 20px 25px;
     border-left: 5px solid #4CAF50;
     border-radius: 6px;
+    color: #ddd;
+    margin-top: 30px;
     margin-bottom: 25px;
 }
 
 #introBox h2 {
     margin-top: 0;
     color: #4CAF50;
-    font-weight: bold;
 }
 
-#introBox p {
-    margin-bottom: 12px;
-    color: #cfe4d3;
-}
-
-
-/* ==========================================================
-   CHAT WINDOW
-   ========================================================== */
-
+/* ===== Chat Container ===== */
 #chat {
-    width: 100%;
-    background: #0f1a12;
+    width: 80%;
+    max-width: 800px;
+    background: #122017;
     padding: 20px;
-    border-radius: 8px;
-    min-height: 260px;
-    max-height: 600px;
-    overflow-y: auto;
-    box-shadow: 0 0 10px rgba(0, 150, 80, 0.3);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;      /* IMPORTANT: wrap long text */
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
-/* Message bubbles */
+/* ===== Message Bubbles ===== */
 .msg {
-    padding: 12px 14px;
+    padding: 10px;
     margin: 10px 0;
     border-radius: 6px;
+    overflow-wrap: break-word;      /* Wrap text inside messages */
+    word-break: break-word;
 }
 
-/* User bubble */
-.msg.user {
-    background: #1a3c29;
-    border-left: 4px solid #4CAF50;
+.user {
+    background: #2f4639;
     text-align: right;
-    color: #d8f8e1;
 }
 
-/* AI bubble */
-.msg.ai {
-    background: #0d2419;
-    border-left: 4px solid #66bb6a;
-    color: #c8e6c9;
+.ai {
+    background: #1c2f25;
+    text-align: left;
 }
 
-
-/* ==========================================================
-   INPUT BAR / SEND BUTTON
-   ========================================================== */
-
+/* ===== Input Area ===== */
 #inputArea {
-    margin-top: 15px;
+    width: 80%;
+    max-width: 800px;
     display: flex;
     gap: 10px;
+    margin-bottom: 40px;
 }
 
 #prompt {
     flex: 1;
     padding: 12px;
-    font-size: 15px;
-    border-radius: 6px;
-    border: 1px solid #2e4736;
-    background: #0f1e15;
-    color: #cfe9d5;
-}
-
-#prompt::placeholder {
-    color: #6f8c78;
-}
-
-button#sendBtn {
-    padding: 12px 20px;
-    border-radius: 6px;
     border: none;
-    background: #43a047;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button#sendBtn:hover {
-    background: #2e7d32;
-}
-
-/* ==========================================================
-   SCROLLBAR (optional aesthetic)
-   ========================================================== */
-
-#chat::-webkit-scrollbar {
-    width: 10px;
-}
-
-#chat::-webkit-scrollbar-track {
-    background: #0b160f;
-}
-
-#chat::-webkit-scrollbar-thumb {
-    background: #2e7d32;
     border-radius: 4px;
+    background: #112017;
+    color: #eee;
 }
 
-#chat::-webkit-scrollbar-thumb:hover {
-    background: #43a047;
+/* ===== Input Button ===== */
+button {
+    padding: 10px 25px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
 }
