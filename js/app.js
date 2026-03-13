@@ -209,12 +209,23 @@ let helpLockedOut = false;
 function maybeGiveHint(input) {
     const lower = input.toLowerCase();
 
-       if (hintLevel >= 3) {
+   if (
+        lower.includes("help") ||
+        lower.includes("hint") ||
+        lower.includes("stuck") ||
+        lower.includes("what do i do")
+    ) {
+        hintLevel++;
+    }
+
+    // lockout check
+    if (hintLevel >= 9) {
         helpLockedOut = true;
         thinkThenRespond("Unfortunately, you have asked too many times for help!", "ai");
         return;
     }
 
+    // hint messages
     if (hintLevel === 1) {
         thinkThenRespond("🤔 Sometimes, AI systems follow hidden instructions you are not meant to see...", "ai");
     }
