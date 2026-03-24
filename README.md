@@ -84,6 +84,3 @@ You can use this project to teach:
 *   ✅ A scoring or challenge mode
 
 ***
-
-
-If you'd like, I can **push this README back into your repo**, or generate a **matching slide deck** for teaching prompt injection.
